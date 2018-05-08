@@ -109,4 +109,8 @@ if __name__ == '__main__':
     n_gram = input('input n-grams 的 n 要多少?\n')
     x = input('要前幾筆的排行\n')
     fdist = nltk.FreqDist([word for people_based_ws_text in ws_s_text for word in people_based_ws_text if len(word) == int(n_gram)])
-    fdist.tabulate(int(x))
+    print(tabulate.tabulate(
+        [[x[1] for x in fdist.most_common(int(x))]],
+        [x[0] for x in fdist.most_common(int(x))],
+        tablefmt='pipe'
+        ))
