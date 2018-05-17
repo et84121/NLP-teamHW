@@ -1,12 +1,12 @@
 import json,ckipws,re,os,tabulate,nltk,time
 
 if __name__ == '__main__':
-    select = input("你要分析哪篇文章呢？\n1. 社會與文化篇(263-312)  2. 政治與經濟篇(214-370)\n請輸入數字 1 or 2\n")
+    select = input("你要分析哪篇文章呢？\n1. 社會與文化篇(005-362)  2. 政治與經濟篇(005-370)\n請輸入數字 1 or 2\n")
     fileName = str()
     if select == '1':
-        fileName = '社會與文化篇(263-312)'
+        fileName = '社會與文化篇(005-362)'
     elif select == '2':    
-        fileName = '政治與經濟篇(214-370)'
+        fileName = '政治與經濟篇(005-370)'
     raw = open('{0}.txt'.format(fileName),encoding='utf-8', mode='r')
 
     t_start = time.clock()
@@ -20,11 +20,16 @@ if __name__ == '__main__':
     text = re.sub(r"\n","",text) #消因排版產生的換行
     text = re.sub(r"=====","\n\n",text)
     text = re.sub(r"\d{1,3} [^\u007E_\u5E74_\u6708_\u65E5_\u7248_\uFF5E].*","",text) #消註解
-    if fileName == '政治與經濟篇(214-370)':
+    if fileName == '政治與經濟篇(005-370)':
+        text=text.replace('第一章　政府部門','')
+        text=text.replace('第二章　民意機關','')
+        text=text.replace('第三章　政治社會運動','')
         text=text.replace('第四章　政治受難','')
         text=text.replace('第五章　農工產業','')
         text=text.replace('第六章　商業與服務業','')
-    elif fileName == '社會與文化篇(263-312)':
+    elif fileName == '社會與文化篇(005-362)':
+        text=text.replace('第一章　教育學術','')
+        text=text.replace('第二章　文學藝術','')
         text=text.replace('第三章　大眾文化','')
         text=text.replace('第四章　醫療衛生','')
         text=text.replace('第五章　宗教信仰','')

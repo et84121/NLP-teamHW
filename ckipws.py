@@ -8,7 +8,7 @@ class CKIPWS:
         self.ckipws = CDLL(py_dll)
         self.ckipws.Initial(c_main_dll,c_ini)
 
-    def segment(self,inputStr, mode = 1):
+    def segment(self,inputStr, mode = 0):
         Result = ''
         try:
             CResult = self.ckipws.Segment(inputStr)
