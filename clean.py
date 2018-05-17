@@ -79,7 +79,7 @@ if __name__ == '__main__':
         with open('{0}.json'.format(fileName),encoding='utf-8', mode='w') as jsonFile:
             WS = ckipws.CKIPWS() #呼叫中研院分詞程式
             for i, t in enumerate(s_text):
-                ws_s_text.append(WS.segment(t))
+                ws_s_text.append(WS.segment(t,mode=1))
                 print(i, end='\r')
             json.dump(ws_s_text,jsonFile)
         print('info :完成分詞 花了: {0}秒'.format(time.clock()-t_start))
