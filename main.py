@@ -62,6 +62,9 @@ def name_show_up():
     """
     計算某名字在該人物段落裡出現的次數
     """
+    n = input('輸入要查詢的人名\n')
+    if n in name:
+        print(n + " 的出現次數為 " + str(ws_s_text.count(n)))
 
 
 def wordType_and_wordToken():
@@ -213,22 +216,26 @@ if __name__ == '__main__':
     """
     選擇要分析的內容
     """
-    choice = input(
-        "輸入想要計算的內容(數字)\n" +
-        "(1)計算各人物 word token 和 word type 數量\n" +
-        "(2)計算N-gram數量排行\n" +
-        "(3)計算動詞數量並排序和列表\n" +
-        "(4)計算某名字在該人物段落裡出現的次數 \n" +
-        "(5)人物事蹟年表\n")
-    if choice == '1':
-        wordType_and_wordToken()
-    elif choice == '2':
-        n_gram()
-    elif choice == '3':
-        the_number_of_verb()
-    elif choice == '4':
-        name_show_up()
-    elif choice == '5':
-        chronology()
-    else:
-        print("Without this option")
+    while True:
+        choice = input(
+            "\n輸入想要計算的內容(數字)\n" +
+            "(1)計算各人物 word token 和 word type 數量\n" +
+            "(2)計算N-gram數量排行\n" +
+            "(3)計算動詞數量並排序和列表\n" +
+            "(4)計算某名字在該人物段落裡出現的次數 \n" +
+            "(5)人物事蹟年表\n" +
+            "(10)離開程式\n")
+        if choice == '1':
+            wordType_and_wordToken()
+        elif choice == '2':
+            n_gram()
+        elif choice == '3':
+            the_number_of_verb()
+        elif choice == '4':
+            name_show_up()
+        elif choice == '5':
+            chronology()
+        elif choice == '10':
+            break
+        else:
+            print("Without this option")
