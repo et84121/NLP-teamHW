@@ -64,7 +64,7 @@ def name_show_up():
     """
     n = input('輸入要查詢的人名\n')
     if n in name:
-        print(n + " 的出現次數為 " + str(ws_s_text.count(n)))
+        print(n + " 的出現次數為 " + str([y for x in ws_s_text for y in x].count(n)))
 
 
 def wordType_and_wordToken():
